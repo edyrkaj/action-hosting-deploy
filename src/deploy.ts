@@ -126,7 +126,7 @@ export async function deployPreview(
     [
       "hosting:channel:deploy",
       channelId,
-      ...(target ? ["--only", target] : []),
+      // ...(target ? ["--only", target] : []),
       ...(expires ? ["--expires", expires] : []),
     ],
     projectId,
@@ -147,7 +147,7 @@ export async function deployProductionSite(
   const { projectId, target } = productionDeployConfig;
 
   const deploymentText = await execWithCredentials(
-    ["deploy", "--only", `hosting${target ? ":" + target : ""}`],
+    ["deploy"],
     projectId,
     gacFilename
   );
